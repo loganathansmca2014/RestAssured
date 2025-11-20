@@ -6,9 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
-
 import static io.restassured.RestAssured.given;
 
 public class Deserialazrion {
@@ -96,6 +94,6 @@ public class Deserialazrion {
             Assert.assertNotNull(mobileCourse.getCourseTitle(),"Course Title is null");
             Assert.assertNotNull(mobileCourse.getPrice(),"Course Price is null");
         }
-        
+
     }
 }
