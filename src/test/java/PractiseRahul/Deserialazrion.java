@@ -96,6 +96,6 @@ public class Deserialazrion {
             Assert.assertNotNull(mobileCourse.getCourseTitle(),"Course Title is null");
             Assert.assertNotNull(mobileCourse.getPrice(),"Course Price is null");
         }
-        
+
     }
 }
