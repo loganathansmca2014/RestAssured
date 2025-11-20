@@ -1,6 +1,6 @@
-package Payload;
+package payloads;
 
-public class PostClass {
+public class PayloadFunction {
     public static String Create(String isbn, String aisle)
     {
         String postpayload="{\n" +

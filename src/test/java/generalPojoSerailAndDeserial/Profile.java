@@ -1,4 +1,4 @@
-package Pojo;
+package generalPojoSerailAndDeserial;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package Pojo;
+package generalPojoSerailAndDeserial;
 
 public class RequestMetaData {
     public String getTraceId() {

@@ -1,18 +1,17 @@
-package rest;
+package accessTokewithallOperation;
 
-import Payload.PostClass;
-import Util.ReusableFunction;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import payloads.PayloadFunction;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
-public class PostFunction {
+public class ToGenerateAccesstokenWithJsonFileinput {
 
     List<String> ids = new LinkedList<>();
 
@@ -23,7 +22,7 @@ public class PostFunction {
 
         String response = given().log().all()
                 .header("Content-Type", "application/json")
-                .body(PostClass.Create(isbn, aisle))
+                .body(PayloadFunction.Create(isbn, aisle))
                 .when()
                 .post("/Library/Addbook.php")
                 .then().log().all()
@@ -74,7 +73,7 @@ public class PostFunction {
 
             String res = given().log().all()
                     .header("Content-Type", "application/json")
-                    .body(PostClass.DeleteBook(id))
+                    .body(PayloadFunction.DeleteBook(id))
                     .when()
                     .delete("/Library/DeleteBook.php")
                     .then().log().all()

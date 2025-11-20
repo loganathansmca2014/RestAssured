@@ -1,13 +1,18 @@
-package rest;
+package generalTestSerialAndDeserial;
 
-import Pojo.*;
+import generalPojoSerailAndDeserial.GetInfo;
+import generalPojoSerailAndDeserial.Roles;
 import io.restassured.RestAssured;
-import static io.restassured.RestAssured.*;
-
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
 
 public class ComplexAPI {
 

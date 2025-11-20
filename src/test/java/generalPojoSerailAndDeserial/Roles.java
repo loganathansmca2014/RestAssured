@@ -1,6 +1,4 @@
-package Pojo;
-
-import java.util.List;
+package generalPojoSerailAndDeserial;
 
 public class Roles {
 

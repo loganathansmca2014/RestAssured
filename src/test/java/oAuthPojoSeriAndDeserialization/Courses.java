@@ -1,4 +1,4 @@
-package Pojo_rahu;
+package oAuthPojoSeriAndDeserialization;
 
 import java.util.List;
 

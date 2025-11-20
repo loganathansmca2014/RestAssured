@@ -1,15 +1,16 @@
-package rest;
-import Payload.PostClass;
+package authJirawithBugCreationandAttachment;
+
 import Util.ReusableFunction;
 import io.restassured.RestAssured;
-import static io.restassured.RestAssured.*;
-
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
+import payloads.PayloadFunction;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+
+import static io.restassured.RestAssured.given;
 
 public class BugTest {
     String id;
@@ -21,9 +22,9 @@ public class BugTest {
     RestAssured.baseURI = "https://logumca2011.atlassian.net";
     String response = given()
             .headers(header)
-            .body(PostClass.CreatBug())
+            .body(PayloadFunction.CreatBug())
             .when()
-            .post("/rest/api/3/issue")
+            .post("/dummy/api/3/issue")
             .then()
             .log().all()
             .extract().response()
@@ -45,7 +46,7 @@ public void addAttachment()
             .headers(header)
             .multiPart("file", new File("result/SQL_Complete_Summary_Sheet.pdf.pdf"))
                 .when()
-                .post("/rest/api/3/issue/{key}/attachments")
+                .post("/dummy/api/3/issue/{key}/attachments")
 
                 .then()
                 .log().all()

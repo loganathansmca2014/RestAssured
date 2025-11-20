@@ -1,6 +1,4 @@
-package Pojo_rahu;
-
-import java.util.List;
+package oAuthPojoSeriAndDeserialization;
 
 public class WebAutomation {
     private String courseTitle;

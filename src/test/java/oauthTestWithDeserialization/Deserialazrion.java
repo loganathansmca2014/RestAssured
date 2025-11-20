@@ -1,6 +1,6 @@
-package PractiseRahul;
+package oauthTestWithDeserialization;
 
-import Pojo_rahu.*;
+import oAuthPojoSeriAndDeserialization.*;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

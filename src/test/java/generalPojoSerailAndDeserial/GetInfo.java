@@ -1,4 +1,4 @@
-package Pojo;
+package generalPojoSerailAndDeserial;
 
 public class GetInfo {
     private User user;

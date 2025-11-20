@@ -1,5 +1,5 @@
-package rest;
-import Pojo.*;
+package generalTestSerialAndDeserial;
+import generalPojoSerailAndDeserial.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class Complez2 {
+public class SerialAndDeSerial {
 
     @Test
     public void serializationAndDeserialization_roundTrip() {

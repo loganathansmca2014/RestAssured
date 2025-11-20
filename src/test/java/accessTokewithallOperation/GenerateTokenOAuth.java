@@ -1,18 +1,17 @@
-package rest;
+package accessTokewithallOperation;
 
 import Util.ReusableFunction;
 import io.restassured.RestAssured;
-import static io.restassured.RestAssured.*;
-
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
+
+import static io.restassured.RestAssured.given;
 
 public class GenerateTokenOAuth {
     public static String token;
@@ -45,17 +44,14 @@ public class GenerateTokenOAuth {
     }
 
     @Test(dependsOnMethods={"generatetokeOAuth"})
-    public void CreateReq() {
+    public void CreateReq() throws IOException {
         Map<String,String>header=new HashMap<>();
         header.put("content-type","application/json");
         header.put("Authorization","Bearer "+token);
         RestAssured.baseURI = "https://httpbin.org";
         String response = given().log().all()
                 .headers(header)
-                .body("{\n" +
-                        "  \"name\": \"Logan\",\n" +
-                        "  \"role\": \"Developer\"\n" +
-                        "}")
+                .body(Files.readAllBytes(Paths.get("src/test/resources/JsonInput/createRequest.json")))
                 .when()
                 .post("/post")
                 .then().assertThat().statusCode(200)
@@ -74,7 +70,7 @@ public class GenerateTokenOAuth {
         RestAssured.baseURI="https://httpbin.org";
         String updateResponse=given()
                 .headers(header)
-                .body(Files.readAllBytes(Paths.get("src/test/resources/update.json")))
+                .body(Files.readAllBytes(Paths.get("src/test/resources/JsonInput/update.json")))
                 .when()
                 .put("/put")
                 .then().assertThat().statusCode(200)
@@ -111,7 +107,7 @@ public class GenerateTokenOAuth {
         RestAssured.baseURI="https://httpbin.org";
         String patchResponse=given()
                 .headers(header)
-                .body(Files.readAllBytes(Paths.get("src/test/resources/patchRequest.json")))
+                .body(Files.readAllBytes(Paths.get("src/test/resources/JsonInput/patchRequest.json")))
                 .when()
                 .patch("/patch")
                 .then().assertThat().statusCode(200)
@@ -148,7 +144,7 @@ public class GenerateTokenOAuth {
         String deleteResponse=given()
                 .headers(header)
                 //.queryParams("name",actualName)
-                .body(Files.    readAllBytes(Paths.get("src/test/resources/deleteRequest.json")))
+                .body(Files.    readAllBytes(Paths.get("src/test/resources/JsonInput/deleteRequest.json")))
                 .when()
                 .delete("/delete")
                 .then().assertThat().statusCode(200)

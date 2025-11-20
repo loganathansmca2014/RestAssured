@@ -1,4 +1,4 @@
-package Pojo_rahu;
+package oAuthPojoSeriAndDeserialization;
 
 public class GetCourseDetails {
     private String instructor;
